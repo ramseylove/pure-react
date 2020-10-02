@@ -38,6 +38,10 @@ function Message({ text }) {
   );
 }
 
+Message.propTypes = {
+ text: PropTypes.string.isRequired
+}
+
 function Author ({ author }) {
   const { name, handle } = author;
   return (
@@ -51,6 +55,15 @@ function Author ({ author }) {
     </span>
   );
 }
+
+Author.propTypes = {
+  author: PropTypes.shape({
+    name:
+      PropTypes.string.isRequired,
+    handle:
+      PropTypes.string.isRequired
+  }).isRequired
+};
 
 const Time = ({ time }) => {
   const timeString = moment(
@@ -95,6 +108,10 @@ const LikeButton = ({ count }) => (
       </span>}
   </span>
 );
+
+LikeButton.propTypes = {
+  count: PropTypes.number
+}
 
 const MoreOptionsButton = () => (
   <i className="fa fa-ellipsis-h more-options-button" / >
